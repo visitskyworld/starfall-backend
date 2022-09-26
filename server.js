@@ -19,11 +19,6 @@ app.use(
   express.urlencoded({ extended: true })
 ); /* bodyParser.urlencoded() is deprecated */
 
-// home route
-app.get('/', (req, res) => {
-  res.json({ message: 'Welcome to Starfall application.' });
-});
-
 // subscribe route
 app.post('/api/subscribe', async (req, res) => {
   const { email } = req.body;
@@ -49,6 +44,8 @@ app.post('/api/subscribe', async (req, res) => {
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
+app.use(express.static(__dirname + '/build'));
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });

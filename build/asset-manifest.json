@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b7f18ece.css",
+    "main.js": "/static/js/main.a55a5244.js",
+    "static/js/787.abdc7490.chunk.js": "/static/js/787.abdc7490.chunk.js",
+    "static/media/background.png": "/static/media/background.206ba2906026961fe00b.png",
+    "static/media/Aviano Sans Bold.woff": "/static/media/Aviano Sans Bold.93ed8065c77b2ea3ca18.woff",
+    "index.html": "/index.html",
+    "main.b7f18ece.css.map": "/static/css/main.b7f18ece.css.map",
+    "main.a55a5244.js.map": "/static/js/main.a55a5244.js.map",
+    "787.abdc7490.chunk.js.map": "/static/js/787.abdc7490.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b7f18ece.css",
+    "static/js/main.a55a5244.js"
+  ]
+}
