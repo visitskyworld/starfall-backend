@@ -13,13 +13,10 @@ command.
 
 ```
 npx prisma migrate dev --name init
+```
 
 ### Run
 
 ```
-
 npm start
-
-```
-
 ```
