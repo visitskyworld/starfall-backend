@@ -1,1 +1,4 @@
 runtime: nodejs16
+network:
+  forwarded_ports:
+    - 8080/tcp
