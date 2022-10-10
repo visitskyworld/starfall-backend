@@ -1,6 +1,13 @@
 const express = require('express');
 const { PrismaClient } = require('@prisma/client');
 const cors = require('cors');
+const http = require('http');
+const https = require('https');
+const fs = require('fs');
+
+const optionSSL = {
+  cert: fs.readFileSync('./www_playstarfall_com.crt'),
+};
 
 const app = express();
 const prisma = new PrismaClient();
@@ -39,9 +46,25 @@ app.post('/api/subscribe', async (req, res) => {
 });
 
 // set port, listen for requests
-const PORT = process.env.PORT || 80;
-app.use(express.static(__dirname + '/build'));
+// const PORT = process.env.PORT || 80;
+// app.use(express.static(__dirname + '/build'));
 
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server is running on port ${PORT}.`);
+// app.listen(PORT, '0.0.0.0', () => {
+//   console.log(`Server is running on port ${PORT}.`);
+// });
+
+const httpApp = express();
+
+httpApp.use(express.static(__dirname + '/build'));
+
+httpApp.get('*', function (req, res, next) {
+  res.redirect('https://' + req.headers.host + req.path);
+});
+
+http.createServer(httpApp).listen(80, function () {
+  console.log('Express TTP server listening on port 80');
+});
+
+https.createServer(optionSSL, app).listen(443, function () {
+  console.log('Express HTTP server listening on port 443');
 });
