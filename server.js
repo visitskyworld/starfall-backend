@@ -54,18 +54,16 @@ app.post('/api/subscribe', async (req, res) => {
 //   console.log(`Server is running on port ${PORT}.`);
 // });
 
-const httpApp = express();
+app.use(express.static(__dirname + '/build'));
 
-httpApp.use(express.static(__dirname + '/build'));
-
-httpApp.get('*', function (req, res, next) {
+app.get('*', function (req, res, next) {
   res.redirect('https://' + req.headers.host + req.path);
 });
 
-http.createServer(httpApp).listen(80, function () {
-  console.log('Express TTP server listening on port 80');
+http.createServer(app).listen(80, function () {
+  console.log('Express HTTP server listening on port 80');
 });
 
 https.createServer(optionSSL, app).listen(443, function () {
-  console.log('Express HTTP server listening on port 443');
+  console.log('Express HTTPS server listening on port 443');
 });
