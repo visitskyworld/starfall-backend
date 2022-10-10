@@ -6,6 +6,7 @@ const https = require('https');
 const fs = require('fs');
 
 const optionSSL = {
+  key: fs.readFileSync('./www.playstarfall.com.key'),
   cert: fs.readFileSync('./www_playstarfall_com.crt'),
 };
 
